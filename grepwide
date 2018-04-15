@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Uses multi-core CPU's and SSD's to search through massive amounts
+# of data
+
+# Starts in the current directory, looks through it, and all subdirectories
+# for files (or symlinks), cat's each one (decompressing if necessary),
+# then searches for the regular expressions listed in the file
+# ~/look4me (in your home directory)
+# Output is stored in a a file called outfile, also in your home directory.
+
+# Writted by Mark W. Jeanmougin, markjx@gmail.com, @markjx01
+# Version 2.0.1
+# Last updated: 15 Apr 2018
+
+
+# ============================================================
+# Global Variables
+
+# Run this from the directory containing your log files. The script
+# will search files in the current directory and all child directories.
+
+# look4me is a file in your home diretory containing what you
+# are searching for. The format for the file is the same as
+# what you pass to grep -f. In other words, one regular expression
+# per line. Blank lines cause problems. Make sure you DO NOT have
+# any blank lines.
+#
+# ________________
+#< No blank lines >
+# ----------------
+#        \   ^__^
+#         \  (oo)\_______
+#            (__)\       )\/\
+#                ||----w |
+#                ||     ||
+#
+look4me=~/look4me
+
+# outfile is where the output of the job is stored.
+# By default, this is a file in your home directory called
+# outfile
+outfile=~/outfile
+
+
+# ============================================================
+# Actual code
+
+# find files or symlinks to files
+# find . -type f -o -type l
+
+find . -type f -o -type l | shuf | parallel -j 110% squishycat {} \| grep -f $look4me > $outfile
+
