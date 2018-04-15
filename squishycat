@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# This script takes a list of file names as an argument.
+# It determines if each file was squished (or compressed)
+# and then calls the appropriate "cat" to do the decompression
+# and dump the uncompressed data to STDOUT.
+
+# Writted by Mark W. Jeanmougin, markjx@gmail.com, @markjx01
+# Version 2.0.1
+# Last updated: 15 Apr 2018
+
+# This function works on a single file.
+scat() {
+i=$1
+if [ ! -f $i ]
+then
+  echo "$0: $i: No such file or directory"
+  exit 1
+fi
+
+fnt=$(file $i | cut -f2 -d: )
+#echo $fnt
+case $fnt in
+  *gzip* )
+      zcat $i
+      ;;
+  *LZ4* )
+      lz4cat $i
+      ;;
+  *XZ* )
+      xzcat $i
+      ;;
+  *bzip2* )
+      bzcat $i
+      ;;
+  *ASCII* )
+      cat $i
+      ;;
+  * )
+      echo "Unknown file type for $i"
+      ;;
+esac
+}
+
+# ============================================================
+if [ "$#" == "0" ];
+then
+    echo "Must give a list of file names to cat"
+    exit 1;
+fi
+
+while (( "$#" ));
+do
+    scat $1
+    shift
+done
