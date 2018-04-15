@@ -6,7 +6,7 @@
 # and dump the uncompressed data to STDOUT.
 
 # Writted by Mark W. Jeanmougin, markjx@gmail.com, @markjx01
-# Version 2.0.1
+# Version 2.0.2
 # Last updated: 15 Apr 2018
 
 # This function works on a single file.
@@ -18,7 +18,7 @@ then
   exit 1
 fi
 
-fnt=$(file $i | cut -f2 -d: )
+fnt=$(file --dereference $i | cut -f2 -d: )
 #echo $fnt
 case $fnt in
   *gzip* )
