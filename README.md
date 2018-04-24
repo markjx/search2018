@@ -1,6 +1,9 @@
 # search2018
 This is a set of utilities for using multi-core CPU's and SSD's to speed up searches.
 
+## sansBlueTeamSummit2018-jeanmougin.pdf
+A PDF of my presentation from the [SANS Blue Team Summit 2018](https://www.sans.org/event/blue-team-summit-2018 "SANS Blue Team Summit 2018") on this topic.
+
 ## grepwide
 grepwide uses all your CPU & Disk I/O to search as fast as possible.
 Check out the script, all the documentation is in there.
@@ -24,9 +27,6 @@ For example: if you run wc -l on a bunch of files and pipe that to totes1.awk, i
 
 ## printurl.awk
 Parses Blue Coat proxy logs and prints the URL.
-
-## sansBlueTeamSummit2018-jeanmougin.pdf
-A PDF of my presentation from the [SANS Blue Team Summit 2018](https://www.sans.org/event/blue-team-summit-2018 "SANS Blue Team Summit 2018") on this topic.
 
 ## Hardware
 For my testing, this is the equipment I used:
