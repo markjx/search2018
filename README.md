@@ -28,6 +28,9 @@ For example: if you run wc -l on a bunch of files and pipe that to totes1.awk, i
 ## printurl.awk
 Parses Blue Coat proxy logs and prints the URL.
 
+## dailyify.sh
+Converts bro logs from the hourly format to one log (per source) per day.
+
 ## Hardware
 For my testing, this is the equipment I used:
 https://pcpartpicker.com/list/3d2TCb
