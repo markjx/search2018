@@ -1,6 +1,9 @@
 # search2018
 This is a set of utilities for using multi-core CPU's and SSD's to speed up searches.
 
+## SecurityOnionConference2018-jeanmougin.pdf
+A PDF of my presentation from the [Security Onion Conference 2018](https://github.com/Security-Onion-Solutions/security-onion/wiki/Conference "Security Onion Conference 2018") on this topic.
+
 ## sansBlueTeamSummit2018-jeanmougin.pdf
 A PDF of my presentation from the [SANS Blue Team Summit 2018](https://www.sans.org/event/blue-team-summit-2018 "SANS Blue Team Summit 2018") on this topic.
 
