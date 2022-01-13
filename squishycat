@@ -18,7 +18,7 @@ then
   exit 1
 fi
 
-fnt=$(file --dereference $i | cut -f2 -d: )
+fnt=$(file --dereference $i | cut -f2- -d: )
 #echo $fnt
 case $fnt in
   *gzip* )
@@ -34,6 +34,9 @@ case $fnt in
       bzcat $i
       ;;
   *ASCII* )
+      cat $i
+      ;;
+  *text* )
       cat $i
       ;;
   * )
